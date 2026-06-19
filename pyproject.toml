@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cpdmd"
+version = "0.0.1"
+description = "Dynamic Mode Decomposition acceleration for charged-particle transport iterations"
+readme = "README.md"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [
+  {name = "Melek Derman", email = "dermanm@oregonstate.edu"},
+]
+maintainers = [
+  {name = "Melek Derman", email = "dermanm@oregonstate.edu"},
+]
+keywords = [
+  "dynamic mode decomposition",
+  "transport",
+  "charged particle",
+  "source iteration",
+  "acceleration",
+  "discrete ordinates",
+]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: BSD 3-Clause License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+  "numpy",
+  "scipy",
+]
+
+[project.optional-dependencies]
+plot = ["matplotlib"]
+dev = [
+  "pytest",
+  "matplotlib",
+]
+bfp = ["mfem"]
+
+[project.urls]
+Homepage = "https://github.com/melekderman/cpdmd"
+Repository = "https://github.com/melekderman/cpdmd.git"
+"Bug Tracker" = "https://github.com/melekderman/cpdmd/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cpdmd"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
